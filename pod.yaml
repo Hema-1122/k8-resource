@@ -1,0 +1,20 @@
+apiversion: v1
+kind: Pod 
+metadata:
+  name: myapp-pod
+  namespace: roboshop-dev
+  labels:
+    project: roboshop
+    environment: development
+spec:
+  containers:
+    - name: nginx
+      image : nginx
+      ports:
+        - containerPort: 80
+      resources:
+        requests:
+          memory: "64Mi"
+          cpu: "250m"
+        limits:
+          memory: "128Mi"
