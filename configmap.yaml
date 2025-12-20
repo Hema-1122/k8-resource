@@ -1,5 +1,5 @@
-apiVersion: apps/v1
-kind : configmap
+apiVersion: v1
+kind : configMap
 metadata:
   name: roboshop-config
   
