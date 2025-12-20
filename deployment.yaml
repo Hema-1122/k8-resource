@@ -1,14 +1,23 @@
 apiVersion: v1
-kind : Pod
-metadata:
-  name: roboshop-pod
+kind : Deployment
+metadata :
+  name : nginx  
   namespace: roboshop
-  labels:
-    project : roboshop
+  labels :
+    project: roboshop
     environment: dev
-spec:
-  containers:
-    - name: roboshop-container
-      image: nginx:latest
-      ports:
-        - containerPort: 80
+spec :
+  replicas : 2  
+  selector :
+    matchLabels :
+      app : nginx 
+  template :
+    metadata :
+      labels :
+        app : nginx 
+  spec :
+      containers :
+        - name : nginx
+          image : nginx:latest
+          ports :
+            - containerPort : 80
