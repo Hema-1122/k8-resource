@@ -6,8 +6,8 @@ metadata :
     app : frontend
     project : roboshop
     environment : dev
-
-  spec:
+    
+    spec:
     containers :
     - name : frontend
       image : nginx:latest
