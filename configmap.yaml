@@ -2,10 +2,7 @@ apiVersion: apps/v1
 kind : configmap
 metadata:
   name: roboshop-config
-  namespace: roboshop
-  labels:
-    project: roboshop
-    environment: dev
+  
 data:
    Name : "Hello from Roboshop ConfigMap"
    Environment : "Development"
