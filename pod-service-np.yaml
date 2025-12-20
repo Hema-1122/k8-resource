@@ -7,6 +7,6 @@ metadata:
     environment: dev
     type : np
 spec :
-    container :
+    containers :
      - name : service-demo-container
        image : nginx:latest
