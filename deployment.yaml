@@ -6,9 +6,9 @@ metadata:
   labels:
     project : roboshop
     environment: dev
-    spec:
-      containers:
-        - name: roboshop-container
-          image: nginx:latest
-          ports:
-            - containerPort: 80
+spec:
+  containers:
+    - name: roboshop-container
+      image: nginx:latest
+      ports:
+        - containerPort: 80
