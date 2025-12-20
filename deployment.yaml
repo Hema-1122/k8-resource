@@ -6,10 +6,9 @@ metadata :
     component : frontend
     project : roboshop
     environment : dev
-
-    spec:
-    containers :
-    - name : frontend
-      image : nginx:latest
-      ports :
-        - containerPort : 80
+spec:
+  containers :
+  - name : frontend
+  image : nginx:latest
+  ports :
+      - containerPort : 80
