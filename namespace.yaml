@@ -2,5 +2,7 @@ apiVersion: v1
 kind : namespace
 metadata:
   name: roboshop
+  namespace: roboshop
   labels:
-    name: roboshop
+    project: roboshop
+    environment: dev
