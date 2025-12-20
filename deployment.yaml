@@ -3,10 +3,10 @@ kind : Pod
 metadata : 
   name : frontend
   labels :
-    app : frontend
+    component : frontend
     project : roboshop
     environment : dev
-    
+
     spec:
     containers :
     - name : frontend
