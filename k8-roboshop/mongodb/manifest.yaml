@@ -25,6 +25,5 @@ template :
       containers :  
        - name : mongodb
          image : joindevops/mongodb:v1
-         ports:
-           - containerPort: 27017
+         
        
