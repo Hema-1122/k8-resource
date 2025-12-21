@@ -25,17 +25,17 @@ spec :
        - name : mongodb
          image : joindevops/mongodb:v1
          livenessProbe:
-          httpGet:
-          path: /health
-          port: 27017
-          initialDelaySeconds: 5
-          periodSeconds: 10
+           httpGet:
+            path: /health
+            port: 27017
+           initialDelaySeconds: 5
+           periodSeconds: 10
          readinessProbe:
-          httpGet:
-          path: /health
-          port: 27017
-          initialDelaySeconds: 5
-          periodSeconds: 10
+           httpGet:
+            path: /health
+            port: 27017
+           initialDelaySeconds: 5
+           periodSeconds: 10
 ---
 apiVersion: v1
 kind : Service
