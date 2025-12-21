@@ -1,19 +1,15 @@
 apiVersion: v1
-kind : Pod
+kind: Pod
 metadata:
-   name : emptydir
-   namespace: default
-   labels:
-      name : emptydir
-spec :
-   containers :
-    - name : nginx
-      image : nginx:latest
-      command: [ "sleep", "1000000" ]
+  name: nginx-emptydir
+spec:
+  containers:
+    - name: nginx
+      image: nginx:latest
       volumeMounts:
-       - name: emptydir-volume
-         mountPath: /var/log/nginx
-      volumes:
-      - name: emptydir-volume
-        emptyDir: 
-          sizeLimit: "10Mi"
+        - name: emptydir-volume
+          mountPath: /usr/share/nginx/html
+
+  volumes:
+    - name: emptydir-volume
+      emptyDir: {}
