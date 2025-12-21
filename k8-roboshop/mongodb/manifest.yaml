@@ -21,18 +21,18 @@ spec :
         component: database
         tier : db 
     spec :
-      containers :
-       - name : mongodb
-         image : joindevops/mongodb:v1
-      livenessProbe:
-        httpGet:
-          path: /health
-          port: 27017
-        initialDelaySeconds: 5
-        periodSeconds: 10
-      readinessProbe:
-        httpGet:
-            path: /health
-            port: 27017
-        initialDelaySeconds: 5
-        timeoutSeconds: 5
+      containers:
+        - name : mongodb
+          image : joindevops/mongodb:v1
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 27017
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 27017
+            initialDelaySeconds: 5
+            timeoutSeconds: 5
