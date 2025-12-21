@@ -27,8 +27,8 @@ spec:
           imagePullPolicy: Always
           livenessProbe:
             httpGet:
-            path: /health
-            port: 5672
+             path: /health
+             port: 5672
           initialDelaySeconds: 30
           periodSeconds: 10
           readinessProbe:
