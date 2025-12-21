@@ -24,17 +24,15 @@ spec :
       containers :
        - name : mongodb
          image : joindevops/mongodb:v1
-         ports:
-          - containerPort: 27017
-         livenessprobe:
-           httpGet:
+         livenessProbe:
+          httpGet:
+          path: /health
+          port: 27017
+          initialDelaySeconds: 5
+          periodSeconds: 10
+         readinessProbe:
+          httpGet:
             path: /health
             port: 27017
-            initialDelaySeconds: 30
-            timeoutSeconds: 5
-         readinessprobe:
-            httpGet:
-                path: /health
-                port: 27017
             initialDelaySeconds: 5
             timeoutSeconds: 5
