@@ -35,18 +35,18 @@ spec :
        - name : mysql
          image : joindevops/mysql:v1
          imagePullPolicy: Always
-         livenessProbe:
-           httpGet:
-            path: /health
-            port: 3306
-           initialDelaySeconds: 5
-           periodSeconds: 10
-         readinessProbe:
-           httpGet:
-            path: /health
-            port: 3306
-           initialDelaySeconds: 5
-           periodSeconds: 10
+        #  livenessProbe:
+        #    httpGet:
+        #     path: /health
+        #     port: 3306
+        #    initialDelaySeconds: 5
+        #    periodSeconds: 10
+        #  readinessProbe:
+        #    httpGet:
+        #     path: /health
+        #     port: 3306
+        #    initialDelaySeconds: 5
+        #    periodSeconds: 10
          volumeMounts:
            - name: mysql-config
              mountPath: /etc/mysql/conf.d/my.cnf
