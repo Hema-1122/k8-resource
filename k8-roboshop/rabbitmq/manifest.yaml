@@ -26,14 +26,12 @@ spec:
           image : rabbitmq:3
           imagePullPolicy: Always
           livenessProbe:
-            httpGet:
-             path: /health
+            tcpSocket:
              port: 5672
             initialDelaySeconds: 15
             periodSeconds: 10
           readinessProbe:
-            httpGet:  
-             path: /health
+            tcpSocket:
              port: 5672
             initialDelaySeconds: 20
             periodSeconds: 5
