@@ -1,0 +1,67 @@
+apiVersion: v1
+kind : ConfigMap
+metadata:
+  name : cart
+  namespace: roboshop
+data:
+  MONGO: "true"
+  MONGO_URL: "mongodb://mongodb:27017/cart"
+  REDIS_URL: "redis://redis:6379"
+---
+apiVersion: apps/v1
+kind : Deployment
+metadata:
+  name : cart
+  namespace: roboshop
+  labels:
+    project: roboshop
+    component: cart
+    tier : backend
+spec :
+  replicas : 1  
+  selector :
+   matchLabels :
+      project: roboshop
+      component: cart
+      tier : backend
+  template :
+    metadata:
+      labels:
+        project: roboshop
+        component: cart
+        tier : backend
+    spec :
+      containers :
+       - name : cart
+         image : joindevops/user:v1
+         imagePullPolicy: Always
+         envFrom:
+          - configMapRef:
+              name: cart
+         livenessProbe:
+           httpGet:
+            path: /health
+            port: 8080
+           initialDelaySeconds: 5
+           periodSeconds: 10
+         readinessProbe:
+           httpGet:
+            path: /health
+            port: 8080
+           initialDelaySeconds: 5
+           periodSeconds: 10
+---
+apiVersion: v1
+kind : Service
+metadata:
+  name : cart
+  namespace: roboshop
+spec :
+  selector :
+      project: roboshop
+      component: cart
+      tier : backend
+  ports :
+    - protocol : TCP
+      port : 8080
+      targetPort : 8080
