@@ -8,22 +8,23 @@ metadata:
     component: database
     tier : db
 spec :
-  replicas: 1
-  selector :
+  replicas : 1
+  selector:
     matchLabels:
       project: roboshop
       component: database
       tier : db
-      
-template :
-    metadat: 
+  template:
+    metadata:
       labels:
         project: roboshop
         component: database
-        tier : db
+        tier : db 
     spec :
-      containers :  
+      containers :
        - name : mongodb
          image : joindevops/mongodb:v1
+         ports:
+          - containerPort: 27017
          
        
