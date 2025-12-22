@@ -39,7 +39,7 @@ spec:
       command: [ "sleep", "3600" ]
       volumeMounts:
         - mountPath: "/mnt/daemon"
-          name: daemon- volume
+          name: daemon-volume
   volumes:
     - name: daemon-volume
       persistentVolumeClaim:
