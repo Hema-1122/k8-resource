@@ -50,4 +50,11 @@ spec:
       - name: statefulset-volume
         persistentVolumeClaim:
           claimName: statefulset-pvc
-    
+  volumeClaimTemplates:
+  - metadata:
+      name: statefulset-pvc
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 10Gi
