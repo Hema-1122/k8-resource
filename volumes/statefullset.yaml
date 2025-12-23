@@ -35,7 +35,8 @@ metadata:
       app: statefulset-app
   template:
     metadata:
-      labels:
+     name: statefulset-pod
+    labels:
         app: statefulset-app
     spec:
       containers:
