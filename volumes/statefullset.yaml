@@ -35,7 +35,7 @@ spec:
       app: statefulset-app
   template:
     metadata:
-     name: statefulset-pod
+     name: 
      labels:
         app: statefulset-app
     spec:
