@@ -1,4 +1,12 @@
 #service#headless#statefulset#pvc
+apiVersion: storage.k8s.io/v1
+kind: storageClass
+metadata:
+    name: roboshop
+reclaimPolicy: retain
+provisioner: ebs.csi.aws.com
+volumeBindingMode: waitForFristConsumer
+---
 apiVersion: v1
 kind: Service
 metadata:
@@ -77,4 +85,6 @@ spec:
       resources:
         requests:
           storage: 10Gi
+
+
         
