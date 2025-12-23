@@ -12,3 +12,17 @@ spec:
      driver: local.csi.k8s.io
      volumeHandle: statefulset-volume
      fsType: ext4
+
+---
+apiVersion: v1  
+kind: PersistentVolumeClaim
+metadata:
+  name: statefulset-pvc
+spec:
+  storageClassName: ""
+  volumeName: statefulset-pvc
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
