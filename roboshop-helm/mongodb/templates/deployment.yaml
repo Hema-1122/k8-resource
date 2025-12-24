@@ -23,7 +23,7 @@ spec :
     spec :
       containers :
        - name : mongodb
-         image : "{{ .Values.deployment.imageRepo}}:{{ .Values.deployment.imageversion}}"
+         image : "{{ .Values.deployment.imageRepo }}:{{ .Values.deployment.imageversion }}"
          livenessProbe:
            httpGet:
             path: /health
