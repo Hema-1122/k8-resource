@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind : Deployment
+metadata:
+  name : mongodb
+  namespace: roboshop
+  labels:
+    project: roboshop
+    component: database
+    tier : db
+spec :
+  replicas : 1
+  selector :
+   matchLabels :
+      project: roboshop
+      component: database
+      tier : db
+  template :
+    metadata:
+      labels:
+        project: roboshop
+        component: database
+        tier : db
+    spec :
+      containers :
+       - name : mongodb
+         image : "{{.values.deployment.imageRepo}}:{{.values.deployment.imageversion}}"
+         livenessProbe:
+           httpGet:
+            path: /health
+            port: 27017
+           initialDelaySeconds: 5
+           periodSeconds: 10
+         readinessProbe:
+           httpGet:
+            path: /health
+            port: 27017
+           initialDelaySeconds: 5
+           periodSeconds: 10
+---
+apiVersion: v1
+kind : Service
+metadata:
+  name : mongodb
+  namespace: roboshop
+spec :
+  type:{{.values.service.type}}
+  selector :
+      project: roboshop
+      component: mongodb
+      tier : db
+  ports :
+    - protocol : TCP
+      port : 27017
+      targetPort : 27017
