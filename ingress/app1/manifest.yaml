@@ -12,7 +12,7 @@ metadata:
 spec:
   ingressClassName: alb
   rules:
-  - host: "app1.daws84s.site"
+  - host: "app1.daws86s.fun"
     http:
       paths:
       - pathType: Prefix
